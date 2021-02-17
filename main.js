@@ -24,19 +24,6 @@ const app = {
         countlikepic() {
             return this.tasks.filter(t => t.done).length
         },
-        searchingphoto() {
-            this.notFound = false;
-            if (this.inputSearch == '') {
-                return this.gallery;
-            } else {
-                let menu = this.gallery.filter(n => n.menuTitle.toLowerCase().includes(this.inputSearch.toLowerCase()));
-                if (menu == '') {
-                    this.notFound = true;
-                } else {
-                    return menu;
-                }
-            }
-        }
     }
 
 }
