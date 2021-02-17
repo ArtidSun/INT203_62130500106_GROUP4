@@ -6,7 +6,8 @@ const app = {
             { image: 'images/Exia.jpg', article: 'GN-001', name: 'Gundam Exia', done: false },
             { image: 'images/Barbatos.jpg', article: 'ASW-G-08', name: 'Gundam Barbatos Lupus Rex', done: false }
             ],
-            searchOn: false
+            searchOn: false,
+            searching: ''
         }
     },
     methods: {
@@ -23,7 +24,7 @@ const app = {
     computed: {
         countlikepic() {
             return this.tasks.filter(t => t.done).length
-        },
+        }
     }
 
 }
