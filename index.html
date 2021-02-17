@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vue Js - HelloWorld App</title>
+
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+    <div class="px-8 py-28 justify-center h-screen w-screen bg-blue-100" id="app">
+        <div class="bg-white rounded-md px-4">
+            <div class="text-center">
+                <div class="text-center font-mono text-2xl font-bold">Photo Gallery (Like: {{countlikepic}})</div>
+                <div class="flex"  >
+                    <div class="flex space-x-2" v-if="searchOn">
+                        <input
+                            class="ml-2 p-1 w-80 placeholder-gray-500 placeholder-opacity-50 focus:outline-none text-black rounded-sm border"
+                            type="text" placeholder="Please enter text for searching photos"
+                            @keyup.enter="searchingphoto()">
+                        <botton class="bg-red-500 hover:bg-red-700 text-xl cursor-pointer rounded p-2 font-bold" v-on:click="hidesearch()">Cancle</botton>
+                    </div>
+                    <i class="material-icons text-3xl font-bold cursor-pointer" v-on:click="opensearch()">
+                        search
+                    </i>
+                </div>
+            </div>
+            <br>
+            <div class=" flex justify-between">
+                <div v-for="(task,index) in tasks" class="flex">
+                    <div class=" flex-col space-y-3">
+                        <img :src="task.image" v-on:click="toggleDone(index)"
+                            class="h-64 hover:shadow-xl border border-white hover:border-gray-500 
+                        translate hover:-translate-y-1 hover:scale-110 transition transform  duration-500 cursor-pointer" />
+                        <div class="flex justify-between">
+                            <div class=" flex-col">
+                                <div class="font-mono text-3xl font-medium">{{task.article}}<br></div>
+                                <div class="font-mono text-xl font-medium">{{task.name}}</div>
+                            </div>
+                            <i class="material-icons text-red-400 flex flex-wrap items-center text-5xl animate-bounce"
+                                v-show="task.done">
+                                favorite
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- my main.js -->
+    <script src="./main.js"></script>
+</body>
+
+</html>
