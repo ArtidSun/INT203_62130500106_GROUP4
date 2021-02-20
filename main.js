@@ -25,12 +25,16 @@ const app = {
         searchingphoto() {
 
             if (this.searching == '') {
+                console.log("test01");
                 return this.tasks;
             } else {
-                menu = this.tasks.filter(n => n.name.toLowerCase().includes(this.searching.toLowerCase()));
+                let menu = this.tasks.filter(n => n.name.toLowerCase().includes(this.searching.toLowerCase()));
+                console.log("test02");
                 if (menu == '') {
-                    return tasks;
+                    console.log("test03");
+                    return this.tasks;
                 }
+                return menu;
             }
 
         }

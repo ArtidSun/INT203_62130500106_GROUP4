@@ -29,9 +29,9 @@
                         <input
                             class="ml-2 p-1 w-80 placeholder-gray-500 placeholder-opacity-50 focus:outline-none text-black rounded-sm border"
                             v-model="searching" placeholder="Please enter text for searching photos">
-                        <botton class="bg-red-500 hover:bg-red-700 text-xl cursor-pointer rounded p-2 font-bold" v-on:click="switchsearch()">Cancle</botton>
+                        <button class="bg-red-500 hover:bg-red-700 text-xl cursor-pointer rounded p-2 font-bold" v-on:click="switchsearch()">Cancel</button>
                     </div>
-                    <i class="material-icons text-3xl font-bold cursor-pointer" v-on:click="switchsearch()">
+                    <i class="material-icons text-3xl font-bold cursor-pointer" v-on:click="switchsearch()" v-else>
                         search
                     </i>
                 </div>
@@ -40,7 +40,7 @@
             <div class=" flex justify-between">
                 <div v-for="(task,index) in searchingphoto" class="flex">
                     <div class=" flex-col space-y-3">
-                        <img :src="task.image" v-on:click="toggleDone(index)"
+                        <img :src="task.image" v-on:click=""
                             class="h-64 hover:shadow-xl border border-white hover:border-gray-500 
                         translate hover:-translate-y-1 hover:scale-110 transition transform  duration-500 cursor-pointer" />
                         <div class="flex justify-between">
@@ -48,8 +48,11 @@
                                 <div class="font-mono text-3xl font-medium">{{task.article}}<br></div>
                                 <div class="font-mono text-xl font-medium">{{task.name}}</div>
                             </div>
-                            <i class="material-icons text-red-400 flex flex-wrap items-center text-5xl animate-bounce"
-                                v-show="task.done">
+                            <i class="material-icons text-blue-400 flex flex-wrap items-center text-5xl animate-bounce"
+                            v-if="tasks.done" v-on:click="toggleDone(index)">
+                                favorite
+                            </i>
+                            <i class="material-icons text-red-400 flex flex-wrap items-center text-5xl"  v-on:click="toggleDone(index)" v-else>
                                 favorite
                             </i>
                         </div>
