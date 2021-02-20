@@ -38,7 +38,7 @@
             </div>
             <br>
             <div class=" flex justify-between">
-                <div v-for="(task,index) in tasks" class="flex">
+                <div v-for="(task,index) in searchingphoto" class="flex">
                     <div class=" flex-col space-y-3">
                         <img :src="task.image" v-on:click="toggleDone(index)"
                             class="h-64 hover:shadow-xl border border-white hover:border-gray-500 

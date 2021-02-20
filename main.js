@@ -15,10 +15,7 @@ const app = {
             this.tasks[index].done = !this.tasks[index].done
         },
         switchsearch() {
-            this.searchOn = !this.searchOn
-            if(this.searchOn == false){
-                this.searching = '';
-            }
+            this.searchOn = !this.searchOn;
         }
     },
     computed: {
@@ -26,14 +23,16 @@ const app = {
             return this.tasks.filter(t => t.done).length
         },
         searchingphoto() {
+
             if (this.searching == '') {
                 return this.tasks;
             } else {
-                gundam = this.tasks.filter(n => n.name.toLowerCase().includes(this.searching.toLowerCase()));
-                if (gundam == '') {
-                    return this.tasks;
+                menu = this.tasks.filter(n => n.name.toLowerCase().includes(this.searching.toLowerCase()));
+                if (menu == '') {
+                    return tasks;
                 }
             }
+
         }
     }
 
