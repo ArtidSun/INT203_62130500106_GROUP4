@@ -14,16 +14,26 @@ const app = {
         toggleDone(index) {
             this.tasks[index].done = !this.tasks[index].done
         },
-        opensearch() {
+        switchsearch() {
             this.searchOn = !this.searchOn
-        },
-        hidesearch() {
-            this.searchOn = !this.searchOn
+            if(this.searchOn == false){
+                this.searching = '';
+            }
         }
     },
     computed: {
         countlikepic() {
             return this.tasks.filter(t => t.done).length
+        },
+        searchingphoto() {
+            if (this.searching == '') {
+                return this.tasks;
+            } else {
+                gundam = this.tasks.filter(n => n.name.toLowerCase().includes(this.searching.toLowerCase()));
+                if (gundam == '') {
+                    return this.tasks;
+                }
+            }
         }
     }
 
