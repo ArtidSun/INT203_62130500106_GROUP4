@@ -7,15 +7,18 @@ const app = {
             { image: 'images/Barbatos.jpg', article: 'ASW-G-08', name: 'Gundam Barbatos Lupus Rex', done: false }
             ],
             searchOn: false,
-            searching: ''
+            searching: '',
+            currentIndex: 0
         }
     },
     methods: {
         toggleDone(index) {
-            this.tasks[index].done = !this.tasks[index].done
+            this.tasks[index].done = !this.tasks[index].done;
+            this.tasks.done[index] = !this.tasks.done[index];
         },
         switchsearch() {
             this.searchOn = !this.searchOn;
+            this.searching = '';
         }
     },
     computed: {

@@ -52,7 +52,8 @@
                             v-if="tasks.done" v-on:click="toggleDone(index)">
                                 favorite
                             </i>
-                            <i class="material-icons text-red-400 flex flex-wrap items-center text-5xl"  v-on:click="toggleDone(index)" v-else>
+                            <i class="material-icons text-blue-400 flex flex-wrap items-center text-5xl animate-bounce"
+                            v-else v-on:click="toggleDone(index)">
                                 favorite
                             </i>
                         </div>
