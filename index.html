@@ -40,7 +40,7 @@
             <div class=" flex justify-between">
                 <div v-for="(task,index) in searchingphoto" class="flex">
                     <div class=" flex-col space-y-3">
-                        <img :src="task.image" v-on:click=""
+                        <img :src="task.image" @click="showImg(index)"
                             class="h-64 hover:shadow-xl border border-white hover:border-gray-500 
                         translate hover:-translate-y-1 hover:scale-110 transition transform  duration-500 cursor-pointer" />
                         <div class="flex justify-between">
